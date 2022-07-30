@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block corecss %}
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    {% endblock corecss %}
+    <title>{% block title %}base{% endblock title %}</title>
+</head>
+<body>
+    <ul>
+        <li><a href="/ho">Home</a></li>
+        <li><a href="{% url 'aboutus' %}">About</a></li>
+        {% url 'basename' as bba %}
+        <li><a href="{{bba}}">Base</a></li>
+
+        <li><a href="{% url 'coursename' %}">Course</a></li>
+    </ul>
+    <h1>{% block content %}i am base page{% endblock content %}</h1>
+</body>
+</html>

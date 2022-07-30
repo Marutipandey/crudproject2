@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th,td{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Page</h1>
+    {% if stu %}
+    <table>
+        <tr>
+            <th>Question</th>
+            <th>Choice1</th>
+            <th>Choice2</th>
+            <th>Choice3</th>
+            <th>Choice4</th>
+            <th>Right-Choice</th>
+        </tr>
+        {% for st in stu %}
+        <tr>
+            <td>{{st.Question}}</td>
+            <td>{{st.Choice1}}</td>
+            <td>{{st.Choice2}}</td>
+            <td>{{st.Choice3}}</td>
+            <td>{{st.Choice4}}</td>
+            <td>{{st.Right_Choice}}</td>
+        </tr>  
+        {% endfor %}
+    </table>
+    {% else %}
+    <h2>no data</h2>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'enroll/base.html' %}
+{% block content %}
+ <div class="row">
+     <div class="col-sm-4">
+   <form action="" method="POST">
+    {% csrf_token %} 
+      {{form.as_p}}
+      <input type="submit" class="btn btn-success" value="Submit">
+   </form>  
+     </div> 
+     <div class="col-sm-7 offset-1">
+       
+       {% if stu %}
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th scope="col">Enter_Your_question</th>
+            <th scope="col">First_Choice</th>
+            <th scope="col">Second_Choice</th>
+            <th scope="col">Third_Choice</th>
+            <th scope="col">Fourth_Choice</th>
+            <th scope="col">Correct_Choice</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for st in stu %}
+          <tr>
+            <th scope="row">{{st.Enter_Your_question}}</th>
+            <td>{{st.First_Choice}}</td>
+            <td>{{st.Second_Choice}}</td>
+            <td>{{st.Third_Choice}}</td>
+            <td>{{st.Fourth_Choice}}</td>
+            <td>{{st.Correct_Choice}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+       {% endif %}
+     </div>
+ </div>
+{% endblock content %}
